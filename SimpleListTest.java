@@ -7,178 +7,328 @@ class SimpleListTest {
 
 	@Test
 	void testSimpleList() {
-		SimpleList list = new SimpleList();
+		SimpleList l = new SimpleList();
 		//Checks if the value is not null
-		assertNotNull(list);
+		assertNotNull(l);
 	}
 
 	@Test
-	void testSimpleListFail() {
-		SimpleList list = new SimpleList();
-		//Failing a test case, saying that the value is not null
-		assertNotEquals(list, null);
+	void testSimpleListF() {
+		SimpleList l = new SimpleList();
+		//Fing a test case, saying that the value is not null
+		assertNotEquals(l, null);
 	}
 
 	@Test
 	void testAdd() {
 		// Fills the array
-		SimpleList list = new SimpleList();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
-		list.add(7);
-		list.add(8);
-		list.add(9);
-		list.add(10);
-		list.add(44);
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(44);
 		//Uses the toString to check if the values in order
-		String result = list.toString();
+		String result = l.toString();
 		assertEquals("44 10 9 8 7 6 5 4 3 2", result);
 	}
 
 	@Test
-	void testAddFail() {
-		SimpleList list = new SimpleList();
+	void testAddF() {
+		SimpleList l = new SimpleList();
 		/*Fills the array, says that once the array is full
 		no more entries should be allowed */
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
-		list.add(7);
-		list.add(8);
-		list.add(9);
-		list.add(10);
-		list.add(44);
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(44);
 		//toString to check false statement
-		String result = list.toString();
+		String result = l.toString();
 		assertNotEquals("10 9 8 7 6 5 4 3 2 1", result);
 	}
 
 	@Test
 	void testRemove() {
-		SimpleList list = new SimpleList();
+		SimpleList l = new SimpleList();
 		//Fills array then removes element
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
-		list.add(7);
-		list.add(8);
-		list.add(9);
-		list.add(10);
-		list.remove(7);
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.remove(7);
 		//Checks to see if it was removed properly
-		String result = list.toString();
+		String result = l.toString();
 		assertEquals("10 9 8 6 5 4 3 2 1", result);
 
 	}
 
 	@Test
-	void testRemoveFail() {
-		SimpleList list = new SimpleList();
+	void testRemoveF() {
+		SimpleList l = new SimpleList();
 		//Removes element, but does not update the count
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
-		list.add(7);
-		list.add(8);
-		list.add(9);
-		list.add(10);
-		list.remove(7);
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.remove(7);
 		//toString to check the incorrect result
-		String result = list.toString();
+		String result = l.toString();
 		assertNotEquals("10 9 8 6 5 4 3 2 1 1", result);
 
 	}
 
 	@Test
 	void testCount() {
-		SimpleList list = new SimpleList();
+		SimpleList l = new SimpleList();
 		//Adds elements to check count
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
-		list.add(7);
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
 		//Checks the count w/ expected value
-		int size = list.count();
+		int size = l.count();
 		assertEquals(7,size);
 	}
 
 	@Test
-	void testCountFail() {
-		SimpleList list = new SimpleList();
+	void testCountF() {
+		SimpleList l = new SimpleList();
 		//Adding past the array length
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
-		list.add(7);
-		list.add(8);
-		list.add(9);
-		list.add(10);
-		list.add(11);
-		list.add(12);
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(11);
+		l.add(12);
 		//Says the count should be the amount of elements added
-		int size = list.count();
+		int size = l.count();
 		assertNotEquals(12,size);
 	}
 
 	@Test
 	void testToString() {
-		SimpleList list = new SimpleList();
+		SimpleList l = new SimpleList();
 		//Simple toString test to get a correct value
-		list.add(5);
-		String result = list.toString();
+		l.add(5);
+		String result = l.toString();
 		assertEquals("5", result);
 	}
 
 	@Test
-	void testToStringFail() {
-		SimpleList list = new SimpleList();
-		//Adds to the list
-		list.add(5);
-		list.add(4);
+	void testToStringF() {
+		SimpleList l = new SimpleList();
+		//Adds to the l
+		l.add(5);
+		l.add(4);
 		//Would print in reverse order which is false
-		String result = list.toString();
+		String result = l.toString();
 		assertNotEquals("4 5 ", result);
 	}
 
 	@Test
 	void testSearch() {
-		SimpleList list = new SimpleList();
+		SimpleList l = new SimpleList();
 		//Searches for the value and returns the index
-		list.add(5);
-		list.add(3);
-		list.add(2);
-		int resultIndex = list.search(5);
+		l.add(5);
+		l.add(3);
+		l.add(2);
+		int resultIndex = l.search(5);
 		assertEquals(2,resultIndex);
 	}
 
 	@Test
-	void testSearchFail() {
-		SimpleList list = new SimpleList();
-		/* Fail case where it got the last index not the first one
+	void testSearchF() {
+		SimpleList l = new SimpleList();
+		/* F case where it got the last index not the first one
 		while iterating */
-		list.add(3);
-		list.add(3);
-		list.add(1);
-		int resultIndex = list.search(5);
+		l.add(3);
+		l.add(3);
+		l.add(1);
+		int resultIndex = l.search(5);
 		assertNotEquals(2,resultIndex);
 	}
+
+	@Test
+	void testAppend() {
+		// Fills the array
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.append(2);
+		l.append(3);
+		l.append(4);
+		l.append(5);
+		l.append(6);
+		l.append(7);
+		l.append(8);
+		l.append(9);
+		l.append(10);
+		l.append(44);
+		//Uses the toString to check if the values in order
+		String result = l.toString();
+		assertEquals("44 10 9 8 7 6 5 4 3 2", result);
+	}
+
+	@Test
+	void testAppendF() {
+		SimpleList l = new SimpleList();
+		/*Fills the array, says that once the array is full
+		no more entries should be allowed */
+		l.add(1);
+		l.append(2);
+		l.append(3);
+		l.append(4);
+		l.append(5);
+		l.append(6);
+		l.append(7);
+		l.append(8);
+		l.append(9);
+		l.append(10);
+		l.append(44);
+		//toString to check false statement
+		String result = l.toString();
+		assertNotEquals("10 9 8 7 6 5 4 3 2 1", result);
+	}
+
+	@Test
+	void testSize() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(44);
+		int result = l.size();
+		assertNotEquals(this.l.length, result);
+	}
+
+	@Test
+	void testSizeF() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(44);
+		int result = l.size();
+		assertNotEquals(this.l.length, result);
+	}
+
+	@Test
+	void testFirst() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(44);
+		int result = l.first();
+		assertNotEquals(0, result);
+	}
+
+	@Test
+	void testFirstF() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(44);
+		int result = l.first();
+		assertNotEquals(0, result);
+	}
+
+	@Test
+	void testLast() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(44);
+		int result = l.last();
+		assertNotEquals(0, result);
+	}
+
+	@Test
+	void testLastF() {
+		SimpleList l = new SimpleList();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		l.add(4);
+		l.add(5);
+		l.add(6);
+		l.add(7);
+		l.add(8);
+		l.add(9);
+		l.add(10);
+		l.add(44);
+		int result = l.last();
+		assertNotEquals(0, result);
+	}
+
 }
